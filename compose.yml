@@ -1,0 +1,23 @@
+services:
+  restmocks:
+    image: dotronglong/faker:stable
+    container_name: restmocks
+    ports:
+      - '3030:3030'
+    volumes:
+      - ./docker/restmocks:/app/mocks
+  postgres:
+    image: postgres:15.6-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=opsstatus
+      - POSTGRES_USER=spring
+      - POSTGRES_PASSWORD=secret
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
+    driver: local
