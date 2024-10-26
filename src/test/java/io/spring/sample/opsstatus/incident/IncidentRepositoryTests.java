@@ -11,8 +11,6 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -20,7 +18,6 @@ import org.springframework.data.domain.Slice;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJdbcTest
-@AutoConfigureTestDatabase(replace = Replace.NONE)
 @Testcontainers(disabledWithoutDocker = true)
 class IncidentRepositoryTests {
 
